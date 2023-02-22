@@ -13,7 +13,7 @@ This will be a full stack app backing a real business with user authentication a
   
   ### deployed through docker 
 
-Demo is currently deployed and running live through `render.com` at: https://clojure-demo-app.onrender.com/ 
+Demo is currently deployed and running live through `render.com` at: https://lessonplanner.onrender.com/ 
 
 It's using the free tier so first load might take a while, but when live I'm getting lighthouse scores of 97-99% Performance 
 (I only get 89% here running the production release on localhost so `render.com` must be doing something nice here) 
