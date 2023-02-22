@@ -1,7 +1,7 @@
 # clojure-app-template
 ## Full stack Clojure/Clojurescript app
 
-This app that helps teachers build lesson plans and materials using OpenAI technologies. It is currently deployed at https://lessonplanner.onrender.com/ during the early dev stage. Please note that it is using render's free tier so the first page load may be slow while it wakes up.
+This app that helps teachers build lesson plans and materials using OpenAI technologies. It is currently deployed at https://lessonplanner.onrender.com/ during the early dev stage. 
 
 I have been a teacher for many years and one of the hardest, most time consuming processes us teachers encounter is lesson planning and creating the corresponding materials. I wanted a project that would allow me to explore new technologies while also solving a real world problem that I encounter on a daily basis.
 
