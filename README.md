@@ -18,7 +18,7 @@ Demo is currently deployed and running live through `render.com` at: https://les
 It's using the free tier so first load might take a while, but when live I'm getting lighthouse scores of 97-99% Performance 
 (I only get 89% here running the production release on localhost so `render.com` must be doing something nice here) 
 and 100% on Accessibility, Best Practices, and SEO (but the demo is only displaying Hello World). 
-The free tier allows for 512mb and this demo seems to use up to ~170mb for just the "Hello World" according to `render.com`'s metrics but I haven't looked into too much yet.
+The starter tier allows for 512mb and this demo seems to use up to ~170mb for just the "Hello World" according to `render.com`'s metrics but I haven't looked into too much yet.
 
 The dockerfile should allow it to be used elsewhere like `fly.io`, `railway.app`, and `heroku` but I haven't tested.
 
