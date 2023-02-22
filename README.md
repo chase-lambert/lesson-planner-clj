@@ -1,14 +1,17 @@
 # clojure-app-template
 ## Full stack Clojure/Clojurescript app
+
+This app that helps teachers build lesson plans and materials using OpenAI technologies. It is currently deployed at https://lessonplanner.onrender.com/ during the early dev stage. Please note that it is using render's free tier so the first page load may be slow while it wakes up.
+
+I have been a teacher for many years and one of the hardest, most time consuming processes us teachers encounter is lesson planning and creating the corresponding materials. I wanted a project that would allow me to explore new technologies while also solving a real world problem that I encounter on a daily basis.
+
+This will be a full stack app backing a real business with user authentication and payment processing. This will remain public while I am in the current early stages building out the foundation for others to use (and allowing me to use it for portfolio purposes in my current job search) but I may take it private with no notice in the near future.
+
   ### backend: deps.edn, jetty, reitit, aero (for config)
   
-  I've commented out some dependencies in `deps.edn`, mostly database stuff. You can just delete that if not needed.
+  ### frontend: shadow-cljs, reagent, re-frame, tailwindcss (w/ daisy ui)
   
-  ### frontend: shadow-cljs, reagent, tailwindcss (w/ daisy ui)
-  
-  I've commented out re-frame for now but it will probably be added back in when needed.
-  
-  ### deployed through dockerfile 
+  ### deployed through docker 
 
 Demo is currently deployed and running live through `render.com` at: https://clojure-demo-app.onrender.com/ 
 
@@ -26,7 +29,7 @@ The dockerfile should allow it to be used elsewhere like `fly.io`, `railway.app`
 ### Frontend: 
 `npm run dev`
 
-HTTP server built on port `3000`
+HTTP server built on port `4000`
 
 nrepl port on `3333`
 
