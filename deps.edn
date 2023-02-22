@@ -1,0 +1,25 @@
+{:paths ["src/backend" "resources"]
+
+ :deps {org.clojure/clojure {:mvn/version "1.12.0-alpha1"}
+        aero/aero           {:mvn/version "1.1.6"}
+        amalloy/ring-gzip-middleware {:mvn/version "0.1.4"}
+        metosin/muuntaja    {:mvn/version "0.6.8"}
+        metosin/reitit      {:mvn/version "0.6.0"}
+        metosin/ring-http-response {:mvn/version "0.9.3"}
+        ring/ring {:mvn/version "1.9.6"}}
+        ;; clj-http/clj-http {:mvn/version "3.12.3"}
+        ;; com.github.seancorfield/next.jdbc {:mvn/version "1.2.780"}
+        ;; com.github.seancorfield/honeysql {:mvn/version "2.3.911"}
+        ;; org.clojure/data.json {:mvn/version "2.4.0"}
+        ;; org.postgresql/postgresql {:mvn/version "42.4.0"}
+ 
+ :aliases 
+ {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.9.3" :git/sha "e537cd1"}}
+                :ns-default build}
+  
+  :test  {:extra-paths ["test"]
+          :extra-deps  {io.github.cognitect-labs/test-runner
+                        {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                         :sha "7284cda41fb9edc0f3bc6b6185cfb7138fc8a023"}}
+          :main-opts ["-m" "cognitect.test-runner"]
+          :exec-fn cognitect.test-runner.api/test}}}
