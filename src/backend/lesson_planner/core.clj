@@ -34,6 +34,8 @@
     (ring/ring-handler
       (ring/router
         [["/" {:get index-handler}]]))
+         ;; ["/query" {:get }]]))
+        
     (ring/create-file-handler {:path "/" :root "resources/public"})))
 
 (defn -main [& _]
@@ -45,3 +47,4 @@
         wrap-gzip) 
     {:port (:port config)
      :join? false}))
+
