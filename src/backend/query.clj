@@ -1,4 +1,4 @@
-(ns lesson-planner.query
+(ns backend.query
  (:require [clj-http.client   :as client]
            [clojure.data.json :as json]))
 

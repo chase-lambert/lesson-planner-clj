@@ -1,4 +1,4 @@
-(ns lesson-planner.core
+(ns backend.core
   (:require 
     [aero.core               :as aero]
     [clojure.java.io         :as io]
