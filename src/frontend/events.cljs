@@ -8,3 +8,8 @@
   ::initialize-db
   (fn [_ _]
     initial-app-db))
+
+(rf/reg-event-db
+  ::set-active-page
+  (fn [db [_ active-page]]
+    (assoc-in db [:nav :active-page] active-page)))

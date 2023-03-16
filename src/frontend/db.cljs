@@ -2,6 +2,7 @@
 
 
 (def initial-app-db 
-  {:name "Chase"})
+  {:name "Chase"
+   :nav  {:active-page :landing}})
 
 

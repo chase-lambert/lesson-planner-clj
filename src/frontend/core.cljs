@@ -2,21 +2,22 @@
   (:require 
     [frontend.events :as events]
     [frontend.subs :as subs]
-    [frontend.views :refer [demo greeting log-in sign-up]]
+    [frontend.views :refer [demo header landing log-in sign-up]]
     [reagent.dom :as rdom]
     [re-frame.core :as rf]))
 
 (defn pages [page-name]
   (case page-name
-    :greeting [greeting]
-    :log-in  [log-in]
-    :sign-up [sign-up]
-    :demo [demo]
-    [greeting])) 
+    :log-in   [log-in]
+    :sign-up  [sign-up]
+    :demo     [demo]
+    [landing]))
 
 (defn app []
-  [:div.container
-   [greeting]])
+  (let [active-page @(rf/subscribe [::subs/active-page])]
+    [:div.container
+     [header]
+     [pages active-page]]))
 
 (defn ^:dev/after-load start []
   (rf/dispatch-sync [::events/initialize-db])
