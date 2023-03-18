@@ -1,7 +1,7 @@
 (ns frontend.events
   (:require 
     [re-frame.core :as rf]
-    [frontend.db :refer [initial-app-db]]))
+    [frontend.db   :refer [initial-app-db]]))
 
 
 (rf/reg-event-db
