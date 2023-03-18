@@ -2,7 +2,9 @@
 
 
 (def initial-app-db 
-  {:name "Chase"
-   :nav  {:active-page :landing}})
-
+  {:auth   {:uid nil}
+   :errors {}
+   :nav    {:active-page :landing
+            :active-nav :landing}
+   :users  {}})
 

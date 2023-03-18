@@ -6,7 +6,9 @@
                 [re-frisk           "1.6.0"]
                 [re-frame           "1.3.0"]]
 
- ;; :dev-http     {3000 "resources/public"}
+ :dev-http     {3000 "resources/public"}
+
+ :jvm-opts     ["-Xmx2G"]
  
  :nrepl        {:port 7002}
 
