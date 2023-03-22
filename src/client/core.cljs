@@ -1,16 +1,20 @@
 (ns client.core
   (:require 
-    [client.events :as events]
-    [client.views  :refer [log-in sign-up]]
+    [client.events]
 
     [client.sections.classes.views :refer [classes]]
     [client.sections.demo.views    :refer [demo]]
     [client.sections.landing.views :refer [landing]]
     [client.sections.lessons.views :refer [lessons]]
 
+    ;; -- auth --
+    [client.auth.events]
+    [client.auth.subs]
+    [client.auth.views :refer [log-in profile sign-up]]
+
     ;; -- nav --
     [client.nav.events]
-    [client.nav.subs  :as subs]
+    [client.nav.subs]
     [client.nav.views :refer [nav]]
 
     [reagent.dom   :as rdom]
@@ -18,15 +22,16 @@
 
 (defn pages [page-name]
   (case page-name
-    :log-in   [log-in]
-    :sign-up  [sign-up]
-    :demo     [demo]
     :classes  [classes]
+    :demo     [demo]
     :lessons  [lessons]
+    :log-in   [log-in]
+    :profile  [profile]
+    :sign-up  [sign-up]
     [landing]))
 
 (defn app []
-  (let [active-nav @(rf/subscribe [::subs/active-nav])]
+  (let [active-nav @(rf/subscribe [:client.nav.subs/active-nav])]
     [:div.container
      [nav]
      [pages active-nav]]))
@@ -36,5 +41,5 @@
     (.getElementById js/document "app")))
 
 (defn ^:export main []
-  (rf/dispatch-sync [::events/initialize-db])
+  (rf/dispatch-sync [:client.events/initialize-db])
   (start))
