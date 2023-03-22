@@ -1,4 +1,4 @@
-(ns frontend.sections.lessons.views)
+(ns client.sections.lessons.views)
 
 (defn lessons []
   [:div "lessons"])

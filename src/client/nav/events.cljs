@@ -1,7 +1,7 @@
-(ns frontend.nav.events
+(ns client.nav.events
   (:require 
     [re-frame.core :as rf]
-    [frontend.db   :refer [initial-app-db]]))
+    [client.db   :refer [initial-app-db]]))
 
 (rf/reg-event-db
   ::set-active-nav

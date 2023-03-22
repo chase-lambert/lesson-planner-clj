@@ -17,7 +17,7 @@
         "react-dom": "^17.0.2"
     },
     "scripts": {
-        "server:watch": "clj -M -m backend.core",
+        "server": "clj -M -m server.core",
 
         "shadow:watch": "shadow-cljs watch app",
         "shadow:release": "shadow-cljs release app",

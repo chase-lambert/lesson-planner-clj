@@ -1,4 +1,4 @@
-(ns frontend.views)
+(ns client.views)
 
 (defn log-in []
   [:div "Log In"])

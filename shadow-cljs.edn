@@ -16,5 +16,5 @@
                       :output-dir "resources/public/js"
                       :asset-path "/js"
                       :devtools   {:preloads [re-frisk.preload]}
-                      :modules    {:main {:init-fn frontend.core/main}}}}}
+                      :modules    {:main {:init-fn client.core/main}}}}}
  

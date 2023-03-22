@@ -1,4 +1,4 @@
-(ns frontend.sections.landing.views)
+(ns client.sections.landing.views)
 
 (defn landing []
   [:div "landing"])

@@ -1,4 +1,4 @@
-(ns backend.core
+(ns server.core
   (:require 
     [aero.core               :as aero]
     [clojure.java.io         :as io]

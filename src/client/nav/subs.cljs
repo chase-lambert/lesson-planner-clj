@@ -1,4 +1,4 @@
-(ns frontend.nav.subs
+(ns client.nav.subs
   (:require
     [re-frame.core :as rf]))
 

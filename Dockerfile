@@ -4,7 +4,7 @@ FROM clojure:latest
 WORKDIR /
 COPY . /
 
-ENV NODE_VERSION=18.6.0
+ENV NODE_VERSION=19.6.0
 RUN apt install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ENV NVM_DIR=/root/.nvm
@@ -19,4 +19,4 @@ RUN clojure -T:build uber
 
 EXPOSE $PORT
 
-ENTRYPOINT exec java $JAVA_OPTS -jar target/lesson-planner-standalone.jar
+ENTRYPOINT exec java $JAVA_OPTS -jar target/lesson-planner.jar

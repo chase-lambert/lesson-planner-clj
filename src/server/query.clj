@@ -1,4 +1,4 @@
-(ns backend.query
+(ns server.query
  (:require [clj-http.client   :as client]
            [clojure.data.json :as json]))
 

@@ -1,6 +1,6 @@
 (ns user
   (:require
-    [lesson-planner.core :refer [-main]]))
+    [server.core :refer [-main]]))
 
 (comment
   (-main))

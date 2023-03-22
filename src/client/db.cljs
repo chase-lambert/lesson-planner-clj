@@ -1,4 +1,4 @@
-(ns frontend.db)
+(ns client.db)
 
 
 (def initial-app-db 

@@ -1,17 +1,17 @@
-(ns frontend.core
+(ns client.core
   (:require 
-    [frontend.events :as events]
-    [frontend.views  :refer [log-in sign-up]]
+    [client.events :as events]
+    [client.views  :refer [log-in sign-up]]
 
-    [frontend.sections.classes.views :refer [classes]]
-    [frontend.sections.demo.views    :refer [demo]]
-    [frontend.sections.landing.views :refer [landing]]
-    [frontend.sections.lessons.views :refer [lessons]]
+    [client.sections.classes.views :refer [classes]]
+    [client.sections.demo.views    :refer [demo]]
+    [client.sections.landing.views :refer [landing]]
+    [client.sections.lessons.views :refer [lessons]]
 
     ;; -- nav --
-    [frontend.nav.events]
-    [frontend.nav.subs  :as subs]
-    [frontend.nav.views :refer [nav]]
+    [client.nav.events]
+    [client.nav.subs  :as subs]
+    [client.nav.views :refer [nav]]
 
     [reagent.dom   :as rdom]
     [re-frame.core :as rf]))
