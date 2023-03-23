@@ -1,8 +1,9 @@
 (ns client.nav.views
   (:require
+    [client.auth.subs  :as auth-subs]
     [client.nav.events :as events]
     [client.nav.subs   :as subs]
-    [re-frame.core       :as rf]))
+    [re-frame.core     :as rf]))
 
 
 (defn nav-item [{:keys [id href name on-click active-nav]}]
@@ -54,7 +55,11 @@
                     {:id       :lessons
                      :name     "Lessons"
                      :href     "#lessons"
-                     :on-click #(rf/dispatch [::events/set-active-nav :lessons])}]]
+                     :on-click #(rf/dispatch [::events/set-active-nav :lessons])}
+                    {:id       :profile
+                     :name     "Profile"
+                     :href     "#profile"
+                     :on-click #(rf/dispatch [::events/set-active-nav :profile])}]]
     [:div {:class "navbar bg-base-100"}
      [:div {:class "flex-1"}
       [:a {:class    "btn btn-ghost normal-case text-xl"
@@ -74,7 +79,7 @@
                     :active-nav active-nav}])]]]))
 
 (defn nav []
-  (let [user false]
-    (if user 
+  (let [logged-in? @(rf/subscribe [::auth-subs/logged-in?])]
+    (if logged-in? 
       [authenticated]
       [public])))

@@ -1,11 +1,13 @@
 (ns client.events
   (:require 
-    [re-frame.core :as rf]
-    [client.db     :refer [initial-app-db]]))
+    [client.auth.events :as auth-events]
+    [client.db     :refer [initial-app-db]]
+    [re-frame.core :as rf]))
 
 
-(rf/reg-event-db
+(rf/reg-event-fx
   ::initialize-db
-  (fn [_ _]
-    initial-app-db))
+  [(rf/inject-cofx ::auth-events/local-store-user)]
+  (fn [{:keys [::auth-events/local-store-user]} _]
+    {:db (assoc-in initial-app-db [:auth] local-store-user)}))
 
