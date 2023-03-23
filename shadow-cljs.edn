@@ -1,4 +1,4 @@
-{:source-paths ["src" "test"]
+{:source-paths ["src" "resources" "test"]
  
  :dependencies [[binaryage/devtools "1.0.6"]
                 [cider/cider-nrepl  "0.30.0"]
@@ -15,6 +15,7 @@
  :builds       {:app {:target     :browser
                       :output-dir "resources/public/js"
                       :asset-path "/js"
+                      :dev        {:closure-defines {client.core/TW true}}
                       :devtools   {:preloads [re-frisk.preload]}
                       :modules    {:main {:init-fn client.core/main}}}}}
  

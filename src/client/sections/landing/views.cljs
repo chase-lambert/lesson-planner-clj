@@ -1,4 +1,8 @@
-(ns client.sections.landing.views)
+(ns client.sections.landing.views
+  (:require
+    [client.components.page-nav :refer [page-nav]])) 
+    
 
 (defn landing []
-  [:div "landing"])
+  [page-nav {:center "Landing"}])
+

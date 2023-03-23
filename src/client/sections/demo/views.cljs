@@ -1,4 +1,7 @@
-(ns client.sections.demo.views)
-
+(ns client.sections.demo.views
+  (:require
+    [client.components.page-nav :refer [page-nav]])) 
+    
 (defn demo []
-  [:div "Demo"])
+  [page-nav {:center "Demo"}])
+

@@ -1,4 +1,7 @@
-(ns client.sections.lessons.views)
-
+(ns client.sections.lessons.views
+  (:require
+    [client.components.page-nav :refer [page-nav]])) 
+    
 (defn lessons []
-  [:div "lessons"])
+  [page-nav {:center "Lessons"}])
+
