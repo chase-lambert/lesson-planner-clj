@@ -28,16 +28,16 @@
                      :name     "Sign Up"
                      :href     "#sign-up"
                      :on-click #(rf/dispatch [::events/set-active-nav :sign-up])}]]
-    [:div {:class "navbar bg-base-100"}
-     [:div {:class "flex-1"}
-      [:a {:class    "btn btn-ghost normal-case text-xl"
+    [:div {:class ""}
+     [:div {:class ""}
+      [:a {:class    ""
            :id       :landing
            :name     "Landing Page"
            :href     "#landing-page"
            :on-click #(rf/dispatch [::events/set-active-nav :landing])}
        "Lesson Planner"]]
-     [:div {:class "flex-none"}
-      [:ul {:class "menu menu-horizontal px-1"}
+     [:div {:class ""}
+      [:ul {:class ""}
        (for [{:keys [id name href on-click]} nav-items]
          ^{:key id}
          [nav-item {:id         id 
@@ -60,16 +60,16 @@
                      :name     "Profile"
                      :href     "#profile"
                      :on-click #(rf/dispatch [::events/set-active-nav :profile])}]]
-    [:div {:class "navbar bg-base-100"}
-     [:div {:class "flex-1"}
-      [:a {:class    "btn btn-ghost normal-case text-xl"
+    [:div {:class ""}
+     [:div {:class ""}
+      [:a {:class    ""
            :id       :classes
            :name     "Classes"
            :href     "#classes"
            :on-click #(rf/dispatch [::events/set-active-nav :classes])}
        "Lesson Planner"]]
-     [:div {:class "flex-none"}
-      [:ul {:class "menu menu-horizontal px-1"}
+     [:div {:class ""}
+      [:ul {:class ""}
        (for [{:keys [id name href on-click]} nav-items]
          ^{:key id}
          [nav-item {:id         id 

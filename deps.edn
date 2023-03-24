@@ -14,8 +14,8 @@
         ;; com.github.seancorfield/honeysql {:mvn/version "2.3.911"}
  
  :aliases 
- {:build {:deps        {io.github.clojure/tools.build {:git/tag "v0.9.3" :git/sha "e537cd1"}
-                        :ns-default build}}
+ {:build {:deps        {io.github.clojure/tools.build {:git/tag "v0.9.3" :git/sha "e537cd1"}}
+          :ns-default  build}
 
   :dev   {:extra-deps  {nrepl/nrepl       {:mvn/version "1.0.0"}
                         cider/cider-nrepl {:mvn/version "0.30.0"}}

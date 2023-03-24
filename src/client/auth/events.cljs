@@ -1,8 +1,8 @@
 (ns client.auth.events
   (:require 
     [client.nav.events :as nav-events]
-    [cljs.reader :refer [read-string]]
-    [re-frame.core :as rf]))
+    [cljs.reader       :refer [read-string]]
+    [re-frame.core     :as rf]))
 
 (def app-user-key "app-user")
 
@@ -11,9 +11,9 @@
     (.setItem js/localStorage app-user-key (str auth))))
 
 (defn remove-user-ls! []
-  (.remove js/localStorage app-user-key))
+  (.removeItem js/localStorage app-user-key))
 
-(def set-user-interceptors [(rf/after set-user-ls!)])
+(def set-user-interceptors    [(rf/after set-user-ls!)])
 (def remove-user-interceptors [(rf/after remove-user-ls!)])
 
 (rf/reg-cofx 
@@ -27,12 +27,12 @@
   (fn [{:keys [db]} [_ {:keys [first-name last-name email password]}]]
     {:db (-> db
              (assoc-in [:auth :uid] email)
-             (assoc-in [:users email] {:id email
+             (assoc-in [:users email] {:uid     email
                                        :profile {:first-name first-name
-                                                 :last-name last-name
-                                                 :email email
-                                                 :password password}}))
-     :dispatch [::nav-events/set-active-nav :saved]}))
+                                                 :last-name  last-name
+                                                 :email      email
+                                                 :password   password}}))
+     :dispatch [::nav-events/set-active-nav :classes]}))
 
 (rf/reg-event-fx
   ::log-in
@@ -50,8 +50,9 @@
         correct-password? 
         {:db (-> db 
                  (assoc-in [:auth :uid] email)
-                 (update-in [:errors] :dissoc :email))
-         :dispatch [::nav-events/set-active-nav :saved]}))))    
+                 (update-in [:errors] dissoc :email))
+         :dispatch [::nav-events/set-active-nav :classes]}))))    
+
 
 (rf/reg-event-fx
   ::log-out
