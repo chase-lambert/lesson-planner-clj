@@ -1,4 +1,4 @@
-(ns lesson-planner.core-test
+(ns client.core-test
   (:require 
     [cljs.test :refer (deftest is)]))
 

@@ -1,4 +1,4 @@
-(ns lesson-planner.core-test
+(ns server.core-test
   (:require
     [clojure.test :refer :all]))
 

@@ -9,18 +9,12 @@ This will be a full stack app backing a real business with user authentication a
 
   ### backend: deps.edn, jetty, reitit, aero (for config)
   
-  ### frontend: shadow-cljs, reagent, re-frame, tailwindcss (w/ daisy ui)
+  ### frontend: shadow-cljs, reagent, re-frame, tailwindcss
   
   ### deployed through docker 
 
 Demo is currently deployed and running live through `render.com` at: https://lessonplanner.onrender.com/ 
 
-It's using the free tier so first load might take a while, but when live I'm getting lighthouse scores of 97-99% Performance 
-(I only get 89% here running the production release on localhost so `render.com` must be doing something nice here) 
-and 100% on Accessibility, Best Practices, and SEO (but the demo is only displaying Hello World). 
-The starter tier allows for 512mb and this demo seems to use up to ~170mb for just the "Hello World" according to `render.com`'s metrics but I haven't looked into too much yet.
-
-The dockerfile should allow it to be used elsewhere like `fly.io`, `railway.app`, and `heroku` but I haven't tested.
 
 ## For dev and prod: 
   `npm install`
@@ -39,7 +33,7 @@ This should give you hot reloading on save, including tailwind css changes.
 I think something is causing postcss to run even without save sometimes, but it isn't affecting development while I track that down.
 
 ### Backend:
-To start the server run `clojure -M -m lesson-planner.core`
+To start the server run `clojure -M -m server.core`
 
 Start your normal repl like usual. (e.g. For me that's `clj -M:repl` and connect.)
 
@@ -50,4 +44,4 @@ TBH, I'm not quite sure how to have the backend and frontend connected to their 
 
 `clojure -T:build uber`
 
-`java -jar target/lesson-planner-standalone.jar`
+`java -jar target/lesson-planner.jar`
