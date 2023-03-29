@@ -13,7 +13,7 @@
                         :password ""}
         values (r/atom initial-values)]
     (fn []
-      [:div {:class ""}
+      [:div {:class "flex flex-col"}
        [page-nav {:center "Log In"}]
        [form-group {:id     :email
                     :label  "Email"
@@ -27,7 +27,7 @@
             :on-click #(rf/dispatch [::nav-events/set-active-nav :sign-up])}
         "New to Lesson Planner? Create an account!"]
        [:div 
-        [:button {:class ""
+        [:button {:class "btn"
                   :on-click #(rf/dispatch [::auth-events/log-in @values])}
          "Log In"]]])))
 
@@ -38,7 +38,7 @@
                         :password   ""}
         values (r/atom initial-values)]
     (fn []
-      [:div {:class ""}
+      [:div {:class "flex flex-col"}
        [page-nav {:center "Sign Up"}]
        [form-group {:id     :first-name
                     :label  "First Name"
@@ -60,7 +60,7 @@
             :on-click #(rf/dispatch [::nav-events/set-active-nav :log-in])}
         "Already have an account? Log in!"]
        [:div 
-        [:button {:class ""
+        [:button {:class "btn"
                   :on-click #(rf/dispatch [::auth-events/sign-up @values])}
          "Sign Up"]]])))
       
@@ -71,8 +71,8 @@
                         :last-name  last-name}
         values (r/atom initial-values)]
     (fn []
-      [:div {:class ""}
-       [page-nav {:right [:button {:class ""
+      [:div {:class "flex flex-col"}
+       [page-nav {:right [:button {:class "btn"
                                    :on-click #(rf/dispatch [::auth-events/log-out])}
                           "Log Out"]
                   :center "Profile"}]
@@ -92,10 +92,10 @@
        ;;              :label "Password"
        ;;              :type "password"
        ;;              :values values}]
-       [:button {:class ""
+       [:button {:class "btn"
                  :on-click #(rf/dispatch [::auth-events/update-profile @values])}
         "Save"]
-       [:button {:class ""
+       [:button {:class "btn btn-warning"
                  :on-click #(when (js/confirm "This will delete your account")
                               (rf/dispatch [::auth-events/delete-account @values]))}
         "Delete Account"]])))

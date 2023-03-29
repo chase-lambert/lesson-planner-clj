@@ -1,11 +1,11 @@
 (ns client.components.page-nav)
 
 (defn page-nav [{:keys [left center right]}]
-  [:div {:class ""}
-   [:div {:class ""}
+  [:div {:class "navbar bg-base-100"}
+   [:div {:class "navbar-start"}
     (when left left)]
-   [:div {:class ""}
-    [:h2 {:class ""}
+   [:div {:class "navbar-center"}
+    [:h2 {:class "font-extrabold text-3xl"}
      center]]
-   [:div {:class ""}
+   [:div {:class "navbar-end"}
     (when right right)]])

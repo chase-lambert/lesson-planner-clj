@@ -12,6 +12,7 @@
     "dependencies": {
         "@tailwindcss/forms": "^0.5.3",
         "cross-env": "^7.0.3",
+        "daisyui": "^2.51.5",
         "highlight.js": "11.5.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
@@ -19,10 +20,13 @@
     "scripts": {
         "server:watch": "clj -M -m server.core",
         "server:release": "clojure -T:build uber",
+
         "shadow:watch": "shadow-cljs watch app",
         "shadow:release": "shadow-cljs release app",
+
         "postcss:build": "cross-env TAILWIND_MODE=build postcss resources/tailwind.css -o ./resources/public/css/main.css --verbose",
         "postcss:release": "cross-env NODE_ENV=production postcss resources/tailwind.css -o ./resources/public/css/main.css --verbose",
+
         "dev": "run-p -l *:watch",
         "release": "run-s *:release"
     }

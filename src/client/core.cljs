@@ -28,7 +28,10 @@
                    (string/replace #"require\(.*\)" ""))]
     (js/console.log "tailwindcdn enabled")
     [:<> 
-     [:script {:src "https://cdn.tailwindcss.com/3.2.4"}]
+     [:link {:href "https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+             :rel  "stylesheet"
+             :type "text/css"}]
+     [:script {:src "https://cdn.tailwindcss.com/3.3.0"}]
      [:script {:dangerouslySetInnerHTML {:__html config}}]]))
     
 
