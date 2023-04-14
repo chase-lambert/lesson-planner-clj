@@ -46,6 +46,5 @@
         wrap-reload
         wrap-gzip) 
     {:port   (:port config)
-     :async? true
      :join?  false}))
 
