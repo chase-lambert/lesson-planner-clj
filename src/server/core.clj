@@ -4,7 +4,7 @@
     [clojure.java.io         :as io]
     [muuntaja.middleware     :as muuntaja]
     [reitit.ring             :as ring]
-    [ring.adapter.jetty      :as jetty]
+    [ring.adapter.jetty9     :as jetty]
     [ring.middleware.gzip    :refer [wrap-gzip]]
     [ring.middleware.reload  :refer [wrap-reload]]
     [ring.util.http-response :as response])
@@ -45,6 +45,7 @@
         wrap-formats
         wrap-reload
         wrap-gzip) 
-    {:port (:port config)
-     :join? false}))
+    {:port   (:port config)
+     :async? true
+     :join?  false}))
 
