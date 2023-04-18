@@ -40,6 +40,7 @@
     (case page-name
       :classes  [classes]
       :demo     [demo]
+      :landing  [landing]
       :lessons  [lessons]
       :log-in   [log-in]
       :profile  [profile]
