@@ -5,8 +5,9 @@
    [client.auth.views :refer [log-in profile sign-up]] 
    [client.events]
    [client.nav.events]
-   [client.nav.subs]
+   [client.nav.subs  :as nav-subs]
    [client.nav.views :refer [nav]]
+   [client.router    :as router]
    [client.sections.classes.views :refer [classes]]
    [client.sections.demo.views    :refer [demo]]
    [client.sections.landing.views :refer [landing]]
@@ -50,17 +51,18 @@
         [landing]))))
 
 (defn app []
-  (let [active-nav @(rf/subscribe [:client.nav.subs/active-nav])]
+  (let [active-page @(rf/subscribe [::nav-subs/active-page])]
     [:div.container
      (when TW         ;; Only include tailwind cdn for dev use
       [tailwindcdn])
      [nav]
-     [pages active-nav]]))
+     [pages active-page]]))
 
 (defn ^:dev/after-load start []
   (rdom/render [app]
     (.getElementById js/document "app")))
 
 (defn ^:export main []
+  (router/start!)
   (rf/dispatch-sync [:client.events/initialize-db])
   (start))

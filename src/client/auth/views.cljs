@@ -5,6 +5,7 @@
     [client.components.form-group :refer [form-group]]
     [client.components.page-nav   :refer [page-nav]]
     [client.nav.events :as nav-events]
+    [client.router :as router]
     [reagent.core  :as r]
     [re-frame.core :as rf]))
 
@@ -23,8 +24,8 @@
                     :label  "Password"
                     :type   "password"
                     :values values}]
-       [:a {:href "#sign-up"
-            :on-click #(rf/dispatch [::nav-events/set-active-nav :sign-up])}
+       [:a {:href (router/path-for :sign-up)
+            :on-click #(rf/dispatch [::nav-events/set-active-page :sign-up])}
         "New to Lesson Planner? Create an account!"]
        [:div 
         [:button {:class "btn"
@@ -56,8 +57,8 @@
                     :label  "Password"
                     :type   "password"
                     :values values}]
-       [:a {:href "#log-in"
-            :on-click #(rf/dispatch [::nav-events/set-active-nav :log-in])}
+       [:a {:href (router/path-for :log-in)
+            :on-click #(rf/dispatch [::nav-events/set-active-page :log-in])}
         "Already have an account? Log in!"]
        [:div 
         [:button {:class "btn"

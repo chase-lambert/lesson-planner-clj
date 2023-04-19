@@ -6,3 +6,8 @@
   ::active-nav
   (fn [db _]
     (get-in db [:nav :active-nav])))
+
+(rf/reg-sub
+  ::active-page
+  (fn [db _]
+    (get-in db [:nav :active-page])))

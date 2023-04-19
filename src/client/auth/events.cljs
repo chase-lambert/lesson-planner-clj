@@ -32,7 +32,8 @@
                                                  :last-name  last-name
                                                  :email      email
                                                  :password   password}}))
-     :dispatch [::nav-events/set-active-nav :classes]}))
+     :dispatch [::nav-events/set-active-page :classes]
+     ::nav-events/navigate-to {:path "/classes"}}))
 
 (rf/reg-event-fx
   ::log-in
@@ -51,7 +52,8 @@
         {:db (-> db 
                  (assoc-in [:auth :uid] email)
                  (update-in [:errors] dissoc :email))
-         :dispatch [::nav-events/set-active-nav :classes]}))))    
+         :dispatch [::nav-events/set-active-page :classes]    
+         ::nav-events/navigate-to {:path "/classes"}}))))
 
 
 (rf/reg-event-fx
@@ -59,7 +61,8 @@
   remove-user-interceptors
   (fn [{:keys [db]} _]
     {:db (assoc-in db [:auth :uid] nil)
-     :dispatch [::nav-events/set-active-nav :landing]}))
+     :dispatch [::nav-events/set-active-page :landing]
+     ::nav-events/navigate-to {:path "/landing"}}))
 
 (rf/reg-event-db
   ::update-profile
@@ -75,4 +78,5 @@
       {:db (-> db
                (assoc-in [:auth :uid] nil)
                (update-in [:users] dissoc uid))
-       :dispatch [::nav-events/set-active-nav :landing]})))
+       :dispatch [::nav-events/set-active-page :landing]
+       ::nav-events/navigate-to {:path "/landing"}})))

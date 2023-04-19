@@ -3,37 +3,38 @@
     [client.auth.subs  :as auth-subs]
     [client.nav.events :as events]
     [client.nav.subs   :as subs]
+    [client.router     :as router]
     [re-frame.core     :as rf]))
 
 
-(defn nav-item [{:keys [id href name on-click active-nav]}]
+(defn nav-item [{:keys [id href name on-click active-page]}]
   [:li 
    [:a {:key      id
         :href     href
         :on-click on-click
-        :class    (when (= id active-nav) "underline decoration-2 underline-offset-8")}
+        :class    (when (= id active-page) "underline decoration-2 underline-offset-8")}
     name]])
 
 (defn public []
-  (let [active-nav @(rf/subscribe [::subs/active-nav])
+  (let [active-page @(rf/subscribe [::subs/active-page])
         nav-items  [{:id       :demo
                      :name     "Demo"
-                     :href     "#demo"
+                     :href     (router/path-for :demo)
                      :on-click #(rf/dispatch [::events/set-active-nav :demo])}
-                    {:id       :log-in
-                     :name     "Log In"
-                     :href     "#log-in"
-                     :on-click #(rf/dispatch [::events/set-active-nav :log-in])}
                     {:id       :sign-up
                      :name     "Sign Up"
-                     :href     "#sign-up"
-                     :on-click #(rf/dispatch [::events/set-active-nav :sign-up])}]]
+                     :href     (router/path-for :sign-up)
+                     :on-click #(rf/dispatch [::events/set-active-nav :sign-up])}
+                    {:id       :log-in
+                     :name     "Log In"
+                     :href     (router/path-for :log-in)
+                     :on-click #(rf/dispatch [::events/set-active-nav :log-in])}]]
     [:div {:class "navbar bg-base-100"}
      [:div {:class "flex-1"}
       [:a {:class    "btn btn-ghost normal-case text-xl"
            :id       :landing
            :name     "Landing Page"
-           :href     "#landing-page"
+           :href     (router/path-for :landing)
            :on-click #(rf/dispatch [::events/set-active-nav :landing])}
        "Lesson Planner"]]
      [:div {:class "flex-none"}
@@ -44,28 +45,28 @@
                     :name       name
                     :href       href
                     :on-click   on-click
-                    :active-nav active-nav}])]]]))
+                    :active-page active-page}])]]]))
 
 (defn authenticated []
-  (let [active-nav @(rf/subscribe [::subs/active-nav])
+  (let [active-page @(rf/subscribe [::subs/active-page])
         nav-items  [{:id       :classes
                      :name     "Classes"
-                     :href     "#classes"
+                     :href     (router/path-for :classes)
                      :on-click #(rf/dispatch [::events/set-active-nav :classes])}
                     {:id       :lessons
                      :name     "Lessons"
-                     :href     "#lessons"
+                     :href     (router/path-for :lessons)
                      :on-click #(rf/dispatch [::events/set-active-nav :lessons])}
                     {:id       :profile
                      :name     "Profile"
-                     :href     "#profile"
+                     :href     (router/path-for :profile)
                      :on-click #(rf/dispatch [::events/set-active-nav :profile])}]]
     [:nav {:class "navbar bg-base-100"}
      [:div {:class "flex-1"}
       [:a {:class    "btn btn-ghost normal-case text-xl"
            :id       :classes
            :name     "Classes"
-           :href     "#classes"
+           :href     (router/path-for :classes)
            :on-click #(rf/dispatch [::events/set-active-nav :classes])}
        "Lesson Planner"]]
      [:div {:class "flex-none"}
@@ -76,7 +77,7 @@
                     :name       name
                     :href       href
                     :on-click   on-click
-                    :active-nav active-nav}])]]]))
+                    :active-page active-page}])]]]))
 
 (defn nav []
   (let [logged-in? @(rf/subscribe [::auth-subs/logged-in?])]
