@@ -1,7 +1,7 @@
 {:source-paths ["src" "resources" "test"]
  
  :dependencies [[bidi "2.1.6"]
-                [binaryage/devtools "1.0.6"]
+                [binaryage/devtools "1.0.7"]
                 [cider/cider-nrepl  "0.30.0"]
                 ;; [metosin/reitit "0.6.0"]
                 [kibu/pushy "0.3.8"]
