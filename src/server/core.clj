@@ -4,7 +4,7 @@
     [clojure.java.io         :as io]
     [muuntaja.middleware     :as muuntaja]
     [reitit.ring             :as ring]
-    [ring.adapter.jetty9     :as jetty]
+    [ring.adapter.jetty      :refer [run-jetty]]
     [ring.middleware.gzip    :refer [wrap-gzip]]
     [ring.middleware.reload  :refer [wrap-reload]]
     [ring.util.http-response :as response])
@@ -33,13 +33,13 @@
   (ring/routes
     (ring/ring-handler
       (ring/router
-        [["/" {:get index-handler}]]))
+        [["" {:get index-handler}]]))
          ;; ["/query" {:get }]]))
         
     (ring/create-file-handler {:path "/" :root "resources/public"})))
 
 (defn -main [& _]
-  (jetty/run-jetty 
+  (run-jetty 
     (-> #'app 
         wrap-nocache 
         wrap-formats

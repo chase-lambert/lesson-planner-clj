@@ -1,25 +1,26 @@
 {:paths ["src" "resources"]
 
- :deps {org.clojure/clojure            {:mvn/version "1.12.0-alpha3"}
+ :deps {org.clojure/clojure            {:mvn/version "1.12.0-alpha4"}
         aero/aero                      {:mvn/version "1.1.6"}
         amalloy/ring-gzip-middleware   {:mvn/version "0.1.4"}
         clj-http/clj-http              {:mvn/version "3.12.3"}
-        info.sunng/ring-jetty9-adapter {:mvn/version "0.20.1"}
+        ;; info.sunng/ring-jetty9-adapter {:mvn/version "0.20.1"}
         metosin/muuntaja               {:mvn/version "0.6.8"}
         metosin/reitit                 {:mvn/version "0.6.0"}
         metosin/ring-http-response     {:mvn/version "0.9.3"}
         org.clojure/data.json          {:mvn/version "2.4.0"}
-        ring/ring                      {:mvn/version "1.10.0"}}
+        org.slf4j/slf4j-nop            {:mvn/version "2.0.7"}
+        ring/ring                      {:mvn/version "1.11.0-alpha1"}}
         ;; com.github.seancorfield/next.jdbc {:mvn/version "1.2.780"}
         ;; org.postgresql/postgresql {:mvn/version "42.4.0"}
         ;; com.github.seancorfield/honeysql {:mvn/version "2.3.911"}
  
  :aliases 
- {:build {:deps        {io.github.clojure/tools.build {:git/tag "v0.9.4" :git/sha "76b78fe"}}
+ {:build {:deps        {io.github.clojure/tools.build {:git/tag "v0.9.5" :git/sha "24f2894"}}
           :ns-default  build}
 
   :dev   {:extra-deps  {nrepl/nrepl       {:mvn/version "1.0.0"}
-                        cider/cider-nrepl {:mvn/version "0.30.0"}}
+                        cider/cider-nrepl {:mvn/version "0.35.0"}}
           :extra-paths ["env/dev"]
           :main-opts   ["-m" "nrepl.cmdline"
                         "-p" "7000"

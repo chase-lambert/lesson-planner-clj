@@ -2,12 +2,12 @@
  
  :dependencies [[bidi "2.1.6"]
                 [binaryage/devtools "1.0.7"]
-                [cider/cider-nrepl  "0.30.0"]
+                [cider/cider-nrepl  "0.35.0"]
                 ;; [metosin/reitit "0.6.0"]
                 [kibu/pushy "0.3.8"]
                 [reagent  "1.2.0"]
                 [re-frame "1.3.0"]
-                [day8.re-frame/re-frame-10x "1.5.0"]]
+                [day8.re-frame/re-frame-10x "1.8.1"]]
 
  ;; :dev-http     {3000 "resources/public"}
 
